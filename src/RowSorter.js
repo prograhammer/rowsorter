@@ -1,14 +1,3 @@
-(function(root, factory) {
-    'use strict';
-    if (typeof define === 'function' && define.amd) {
-        define('RowSorter', factory);
-    } else if (typeof exports === 'object') {
-        module.exports = factory();
-    } else {
-        root.RowSorter = factory();
-    }
-})(this, function() {
-    'use strict';
 
     var $ = false,
         arrProto = Array.prototype,
@@ -759,19 +748,4 @@
         return -1;
     }
 
-    // if jQuery, register plugin.
-    if ($) {
-        $.fn.extend({
-            rowSorter: function(options) {
-                var sorters = [];
-                this.each(function(index, element) {
-                    sorters.push(new RowSorter(element, options));
-                });
-                return sorters.length === 1 ? sorters[0] : sorters;
-            }
-        });
-        $.rowSorter = {undo: RowSorter.undo, revert: RowSorter.revert, destroy: RowSorter.destroy};
-    }
-
-    return RowSorter;
-});
+export { RowSorter };
