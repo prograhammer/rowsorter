@@ -10,7 +10,7 @@
 })(this, function() {
     'use strict';
 
-    var $ = window.jQuery||false,
+    var $ = false,
         arrProto = Array.prototype,
         touchSupport = !!('ontouchstart' in document),
         helperAttrName = 'data-rowsorter',
